@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F128102C2C3E8D6B00C8A5F0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128102B2C3E8D6B00C8A5F0 /* NetworkService.swift */; };
+		F128102E2C3E90D200C8A5F0 /* UsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128102D2C3E90D200C8A5F0 /* UsersApi.swift */; };
+		F12810302C3EAD4A00C8A5F0 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128102F2C3EAD4A00C8A5F0 /* APIEndpoints.swift */; };
+		F19DDB422C3D4D1E00D58045 /* UsersServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DDB412C3D4D1E00D58045 /* UsersServer.swift */; };
 		F1ACD2E62C37FA9300CA3D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD2E52C37FA9300CA3D74 /* AppDelegate.swift */; };
 		F1ACD2E82C37FA9300CA3D74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD2E72C37FA9300CA3D74 /* SceneDelegate.swift */; };
 		F1ACD2EA2C37FA9300CA3D74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD2E92C37FA9300CA3D74 /* ViewController.swift */; };
@@ -14,9 +18,21 @@
 		F1ACD2EF2C37FA9700CA3D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1ACD2EE2C37FA9700CA3D74 /* Assets.xcassets */; };
 		F1ACD2F22C37FA9700CA3D74 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F1ACD2F12C37FA9700CA3D74 /* Base */; };
 		F1ACD2FF2C37FBFD00CA3D74 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F1ACD2FE2C37FBFD00CA3D74 /* Localizable.xcstrings */; };
+		F1ACD3062C38051100CA3D74 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD3052C38051100CA3D74 /* UserData.swift */; };
+		F1ACD3082C38058300CA3D74 /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD3072C38058300CA3D74 /* UserNetwork.swift */; };
+		F1ACD30A2C38091A00CA3D74 /* MapperNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD3092C38091A00CA3D74 /* MapperNetwork.swift */; };
+		F1ACD30C2C380A2100CA3D74 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD30B2C380A2100CA3D74 /* UserRepositoryImpl.swift */; };
+		F1ACD30E2C380A3600CA3D74 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD30D2C380A3600CA3D74 /* UserRepository.swift */; };
+		F1ACD3102C380B8900CA3D74 /* MapperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD30F2C380B8900CA3D74 /* MapperData.swift */; };
+		F1ACD3132C380E2800CA3D74 /* NetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD3122C380E2800CA3D74 /* NetworkServiceImpl.swift */; };
+		F1EA2DBB2C3972B100EA0A48 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA2DBA2C3972B100EA0A48 /* ServiceLocator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F128102B2C3E8D6B00C8A5F0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F128102D2C3E90D200C8A5F0 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
+		F128102F2C3EAD4A00C8A5F0 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		F19DDB412C3D4D1E00D58045 /* UsersServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersServer.swift; sourceTree = "<group>"; };
 		F1ACD2E22C37FA9300CA3D74 /* BureMenuOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BureMenuOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1ACD2E52C37FA9300CA3D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1ACD2E72C37FA9300CA3D74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +42,14 @@
 		F1ACD2F12C37FA9700CA3D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1ACD2F32C37FA9700CA3D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1ACD2FE2C37FBFD00CA3D74 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F1ACD3052C38051100CA3D74 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		F1ACD3072C38058300CA3D74 /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
+		F1ACD3092C38091A00CA3D74 /* MapperNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperNetwork.swift; sourceTree = "<group>"; };
+		F1ACD30B2C380A2100CA3D74 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		F1ACD30D2C380A3600CA3D74 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		F1ACD30F2C380B8900CA3D74 /* MapperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperData.swift; sourceTree = "<group>"; };
+		F1ACD3122C380E2800CA3D74 /* NetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceImpl.swift; sourceTree = "<group>"; };
+		F1EA2DBA2C3972B100EA0A48 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +82,10 @@
 		F1ACD2E42C37FA9300CA3D74 /* BureMenuOrder */ = {
 			isa = PBXGroup;
 			children = (
-				F1ACD3002C37FE5A00CA3D74 /* domain */,
 				F1ACD2FC2C37FAEF00CA3D74 /* app */,
-				F1ACD2FB2C37FAE300CA3D74 /* resources */,
 				F1ACD2FA2C37FADB00CA3D74 /* network */,
+				F1ACD3002C37FE5A00CA3D74 /* domain */,
+				F1ACD2FB2C37FAE300CA3D74 /* resources */,
 				F1ACD2F92C37FAD200CA3D74 /* ui */,
 			);
 			path = BureMenuOrder;
@@ -80,8 +104,10 @@
 		F1ACD2FA2C37FADB00CA3D74 /* network */ = {
 			isa = PBXGroup;
 			children = (
+				F1ACD3112C380E0300CA3D74 /* api */,
 				F1ACD3042C37FF0F00CA3D74 /* repository */,
 				F1ACD3032C37FF0600CA3D74 /* models */,
+				F1ACD3092C38091A00CA3D74 /* MapperNetwork.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -101,6 +127,7 @@
 				F1ACD2E52C37FA9300CA3D74 /* AppDelegate.swift */,
 				F1ACD2E72C37FA9300CA3D74 /* SceneDelegate.swift */,
 				F1ACD2F32C37FA9700CA3D74 /* Info.plist */,
+				F1EA2DBA2C3972B100EA0A48 /* ServiceLocator.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -110,6 +137,7 @@
 			children = (
 				F1ACD3022C37FECF00CA3D74 /* repository */,
 				F1ACD3012C37FE6B00CA3D74 /* models */,
+				F1ACD30F2C380B8900CA3D74 /* MapperData.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -117,6 +145,7 @@
 		F1ACD3012C37FE6B00CA3D74 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				F1ACD3052C38051100CA3D74 /* UserData.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -124,6 +153,7 @@
 		F1ACD3022C37FECF00CA3D74 /* repository */ = {
 			isa = PBXGroup;
 			children = (
+				F1ACD30D2C380A3600CA3D74 /* UserRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -131,6 +161,7 @@
 		F1ACD3032C37FF0600CA3D74 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				F1ACD3072C38058300CA3D74 /* UserNetwork.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -138,8 +169,21 @@
 		F1ACD3042C37FF0F00CA3D74 /* repository */ = {
 			isa = PBXGroup;
 			children = (
+				F1ACD30B2C380A2100CA3D74 /* UserRepositoryImpl.swift */,
 			);
 			path = repository;
+			sourceTree = "<group>";
+		};
+		F1ACD3112C380E0300CA3D74 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				F19DDB412C3D4D1E00D58045 /* UsersServer.swift */,
+				F128102D2C3E90D200C8A5F0 /* UsersApi.swift */,
+				F1ACD3122C380E2800CA3D74 /* NetworkServiceImpl.swift */,
+				F128102B2C3E8D6B00C8A5F0 /* NetworkService.swift */,
+				F128102F2C3EAD4A00C8A5F0 /* APIEndpoints.swift */,
+			);
+			path = api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,9 +258,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F12810302C3EAD4A00C8A5F0 /* APIEndpoints.swift in Sources */,
 				F1ACD2EA2C37FA9300CA3D74 /* ViewController.swift in Sources */,
+				F19DDB422C3D4D1E00D58045 /* UsersServer.swift in Sources */,
 				F1ACD2E62C37FA9300CA3D74 /* AppDelegate.swift in Sources */,
+				F1ACD3102C380B8900CA3D74 /* MapperData.swift in Sources */,
+				F1EA2DBB2C3972B100EA0A48 /* ServiceLocator.swift in Sources */,
+				F1ACD30C2C380A2100CA3D74 /* UserRepositoryImpl.swift in Sources */,
+				F1ACD30A2C38091A00CA3D74 /* MapperNetwork.swift in Sources */,
+				F1ACD3082C38058300CA3D74 /* UserNetwork.swift in Sources */,
+				F1ACD3062C38051100CA3D74 /* UserData.swift in Sources */,
+				F128102E2C3E90D200C8A5F0 /* UsersApi.swift in Sources */,
+				F1ACD30E2C380A3600CA3D74 /* UserRepository.swift in Sources */,
 				F1ACD2E82C37FA9300CA3D74 /* SceneDelegate.swift in Sources */,
+				F128102C2C3E8D6B00C8A5F0 /* NetworkService.swift in Sources */,
+				F1ACD3132C380E2800CA3D74 /* NetworkServiceImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
