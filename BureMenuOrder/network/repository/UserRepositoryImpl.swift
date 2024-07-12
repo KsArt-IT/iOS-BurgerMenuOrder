@@ -20,9 +20,14 @@ final class UserRepositoryImpl: UserRepository {
             switch result {
                 case .success(let data):
                     let users = data.map { $0.mapToData() }
-                    completion(.success(users))
+                    self.executeToMain {
+                        completion(.success(users))
+                    }
+
                 case .failure(let error):
-                    completion(.failure(error))
+                    self.executeToMain {
+                        completion(.failure(error))
+                    }
             }
         }
     }
@@ -32,9 +37,13 @@ final class UserRepositoryImpl: UserRepository {
             switch result {
                 case .success(let data):
                     let user = data.first?.mapToData()
-                    completion(.success(user))
+                    self.executeToMain {
+                        completion(.success(user))
+                    }
                 case .failure(let error):
-                    completion(.failure(error))
+                    self.executeToMain {
+                        completion(.failure(error))
+                    }
             }
         }
     }
@@ -42,11 +51,21 @@ final class UserRepositoryImpl: UserRepository {
     func saveUsers(_ users: [UserData], completion: @escaping (Result<Void, Error>) -> Void) {
         service.saveData(endpoint: .saveUsers(users.map { $0.mapToNetwork() })) { result in
             switch result {
-                case .success(let data):
-                    completion(.success(()))
+                case .success(_):
+                    self.executeToMain {
+                        completion(.success(()))
+                    }
                 case .failure(let error):
-                    completion(.failure(error))
+                    self.executeToMain {
+                        completion(.failure(error))
+                    }
             }
+        }
+    }
+
+    private func executeToMain(_ block: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            block()
         }
     }
 }

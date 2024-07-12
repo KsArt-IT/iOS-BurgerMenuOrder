@@ -12,8 +12,7 @@ final class UsersServer {
 
     private var users: [UserNetwork] = []
     private var lastId = 0
-    private let depositeForNewUser = 1000.0
-    private let letters = "abcdefghijklmnopqrstuvwxyz"
+
     private let photoCount = 50
 
     private init () {}
@@ -27,8 +26,8 @@ final class UsersServer {
                     id: lastId,
                     name: user.name,
                     photo: user.photo,
-                    orderAmount: 0,
-                    deposite: depositeForNewUser
+                    orderAmount: 0, // еще ничего не покупал
+                    deposite: UserType.newClient.rawValue // кредит доверия
                 )
             )
         } else {
@@ -51,28 +50,17 @@ final class UsersServer {
         guard users.isEmpty else { return }
 
         (10001...10100).forEach { id in
+            let clientMoney = UserType.getClientMoney()
             let user = UserNetwork(
                 id: id,
-                name: getRandomName(Int.random(in: 4...10)),
+                name: String.randomName(),
                 photo: getPhoto(id),
-                orderAmount: 1000,
-                deposite: 100
+                orderAmount: clientMoney.orderAmount,
+                deposite: clientMoney.deposite
             )
             users.append(user)
             lastId = id
         }
-    }
-
-    private func getRandomName(_ size: Int) -> String {
-        var name: String = getRandomChar().uppercased()
-        for _ in 2...size {
-            name.append(getRandomChar())
-        }
-        return name
-    }
-
-    private func getRandomChar() -> Character {
-        letters[letters.index(letters.startIndex, offsetBy: Int.random(in: 0..<letters.count))]
     }
 
     private func getPhoto(_ index: Int) -> String {
