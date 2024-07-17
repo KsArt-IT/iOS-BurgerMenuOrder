@@ -17,7 +17,7 @@ class ContactCell: UITableViewCell {
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.red.cgColor
 
-        view.layer.cornerRadius = 25
+        view.layer.cornerRadius = R.Constant.CornerRadius.medium
         view.layer.masksToBounds = false
         view.clipsToBounds = true
         return view
@@ -47,8 +47,8 @@ class ContactCell: UITableViewCell {
         contentView.addSubview(nameBackView)
         contentView.addSubview(nameLabel)
 
-        nameBackView.backgroundColor = .white.withAlphaComponent(0.65)
-        nameBackView.layer.cornerRadius = 16
+        nameBackView.backgroundColor = .white.withAlphaComponent(0.75)
+        nameBackView.layer.cornerRadius = R.Constant.CornerRadius.small
         nameBackView.layer.borderWidth = 1
         nameBackView.layer.borderColor = UIColor.red.cgColor
         nameBackView.clipsToBounds = true
@@ -60,18 +60,23 @@ class ContactCell: UITableViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            photo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            photo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            photo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            photo.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            photo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: R.Constant.small),
+            photo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -R.Constant.small),
+            photo.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            // максимальная требуемая 200
+            photo.widthAnchor.constraint(lessThanOrEqualToConstant: 200),
+            // 80% от ширины
+            photo.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
+            // соотношение сторон 1:1
+            photo.heightAnchor.constraint(equalTo: photo.widthAnchor, multiplier: 1.0),
 
-            nameLabel.bottomAnchor.constraint(equalTo: photo.bottomAnchor, constant: -16),
-            nameLabel.trailingAnchor.constraint(equalTo: photo.trailingAnchor, constant: -50),
+            nameLabel.bottomAnchor.constraint(equalTo: photo.bottomAnchor, constant: -R.Constant.medium),
+            nameLabel.trailingAnchor.constraint(equalTo: photo.trailingAnchor, constant: -R.Constant.big),
 
-            nameBackView.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -2),
-            nameBackView.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
-            nameBackView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: -20),
-            nameBackView.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 20),
+            nameBackView.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -R.Constant.minimal),
+            nameBackView.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: R.Constant.minimal),
+            nameBackView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: -R.Constant.large),
+            nameBackView.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: R.Constant.large),
 
         ])
     }
@@ -79,6 +84,14 @@ class ContactCell: UITableViewCell {
     func configure(user: UserData) {
         photo.image = UIImage(named: user.photo)
         nameLabel.text = user.name
+        setColors(user: user)
+    }
+
+    private func setColors(user: UserData) {
+        let color = user.typeContacts.getColor()
+        nameLabel.textColor = color
+        nameBackView.layer.borderColor = color.cgColor
+        photo.layer.borderColor = color.cgColor
     }
 
 }

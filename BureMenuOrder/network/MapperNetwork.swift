@@ -15,7 +15,7 @@ extension UserNetwork {
             photo: self.photo,
             orderAmount: self.orderAmount,
             deposite: self.deposite,
-            type: UserType.getType(self.orderAmount > self.deposite ? self.orderAmount : self.deposite)
+            typeContacts: UserType.getType(self.orderAmount > self.deposite ? self.orderAmount : self.deposite)
         )
     }
 }

@@ -41,7 +41,7 @@ class ViewController: UIViewController {
                         self?.contacts.append([])
                     }
                     data.forEach { user in
-                        let index = UserType.allCases.firstIndex(of: user.type) ?? UserType.allCases.count-1
+                        let index = UserType.allCases.firstIndex(of: user.typeContacts) ?? UserType.allCases.count-1
                         print("\(index) -> \(user.name) -> \(user.photo)")
                         self?.contacts[index].append(user)
                     }
@@ -91,6 +91,13 @@ class ViewController: UIViewController {
             loading.stopAnimating()
         }
     }
+
+    private func showDetailController(for contact: UserData) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "detailControllerSID") as? DetailViewController {
+            vc.configure(contact)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -131,6 +138,7 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        showDetailController(for: contacts[indexPath.section][indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

@@ -13,5 +13,5 @@ struct UserData {
     let photo: String // фото
     let orderAmount: Double // всего заказано на сумму
     let deposite: Double // сумма депозита или возможность предзаказа
-    let type: UserType // тип клиента, новый или вип или простой клиент
+    let typeContacts: UserType // тип клиента, новый или вип или простой клиент
 }

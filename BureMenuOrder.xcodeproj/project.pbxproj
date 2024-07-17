@@ -12,6 +12,7 @@
 		F128102E2C3E90D200C8A5F0 /* UsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128102D2C3E90D200C8A5F0 /* UsersApi.swift */; };
 		F12810302C3EAD4A00C8A5F0 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128102F2C3EAD4A00C8A5F0 /* APIEndpoints.swift */; };
 		F13264E32C3ED9D800389291 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13264E22C3ED9D800389291 /* ContactCell.swift */; };
+		F186719C2C4694EC00F6310E /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186719B2C4694EC00F6310E /* R.swift */; };
 		F18C57312C41885C0029953F /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C57302C41885C0029953F /* UserType.swift */; };
 		F18C57332C41AD130029953F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C57322C41AD130029953F /* Extensions.swift */; };
 		F19DDB422C3D4D1E00D58045 /* UsersServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DDB412C3D4D1E00D58045 /* UsersServer.swift */; };
@@ -29,6 +30,7 @@
 		F1ACD30E2C380A3600CA3D74 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD30D2C380A3600CA3D74 /* UserRepository.swift */; };
 		F1ACD3102C380B8900CA3D74 /* MapperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD30F2C380B8900CA3D74 /* MapperData.swift */; };
 		F1ACD3132C380E2800CA3D74 /* NetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ACD3122C380E2800CA3D74 /* NetworkServiceImpl.swift */; };
+		F1AEDC162C429AFE003F5F45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AEDC152C429AFE003F5F45 /* DetailViewController.swift */; };
 		F1EA2DBB2C3972B100EA0A48 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA2DBA2C3972B100EA0A48 /* ServiceLocator.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,7 @@
 		F128102D2C3E90D200C8A5F0 /* UsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersApi.swift; sourceTree = "<group>"; };
 		F128102F2C3EAD4A00C8A5F0 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		F13264E22C3ED9D800389291 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		F186719B2C4694EC00F6310E /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		F18C57302C41885C0029953F /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		F18C57322C41AD130029953F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F19DDB412C3D4D1E00D58045 /* UsersServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersServer.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		F1ACD30D2C380A3600CA3D74 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		F1ACD30F2C380B8900CA3D74 /* MapperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperData.swift; sourceTree = "<group>"; };
 		F1ACD3122C380E2800CA3D74 /* NetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceImpl.swift; sourceTree = "<group>"; };
+		F1AEDC152C429AFE003F5F45 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F1EA2DBA2C3972B100EA0A48 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,11 +114,10 @@
 		F1ACD2F92C37FAD200CA3D74 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				F1AEDC172C42A07F003F5F45 /* controllers */,
 				F13264E12C3ED9A500389291 /* table */,
-				F1ACD2E92C37FA9300CA3D74 /* ViewController.swift */,
 				F1ACD2EB2C37FA9300CA3D74 /* Main.storyboard */,
 				F1ACD2F02C37FA9700CA3D74 /* LaunchScreen.storyboard */,
-				F1193DA12C3FE79E006F1501 /* ControllersExt.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 				F1ACD2EE2C37FA9700CA3D74 /* Assets.xcassets */,
 				F1ACD2FE2C37FBFD00CA3D74 /* Localizable.xcstrings */,
 				F18C57322C41AD130029953F /* Extensions.swift */,
+				F186719B2C4694EC00F6310E /* R.swift */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -204,6 +208,16 @@
 				F128102F2C3EAD4A00C8A5F0 /* APIEndpoints.swift */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		F1AEDC172C42A07F003F5F45 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1193DA12C3FE79E006F1501 /* ControllersExt.swift */,
+				F1ACD2E92C37FA9300CA3D74 /* ViewController.swift */,
+				F1AEDC152C429AFE003F5F45 /* DetailViewController.swift */,
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +299,7 @@
 				F1ACD3102C380B8900CA3D74 /* MapperData.swift in Sources */,
 				F1EA2DBB2C3972B100EA0A48 /* ServiceLocator.swift in Sources */,
 				F1193DA22C3FE79E006F1501 /* ControllersExt.swift in Sources */,
+				F1AEDC162C429AFE003F5F45 /* DetailViewController.swift in Sources */,
 				F18C57332C41AD130029953F /* Extensions.swift in Sources */,
 				F1ACD30C2C380A2100CA3D74 /* UserRepositoryImpl.swift in Sources */,
 				F1ACD30A2C38091A00CA3D74 /* MapperNetwork.swift in Sources */,
@@ -292,6 +307,7 @@
 				F1ACD3082C38058300CA3D74 /* UserNetwork.swift in Sources */,
 				F1ACD3062C38051100CA3D74 /* UserData.swift in Sources */,
 				F128102E2C3E90D200C8A5F0 /* UsersApi.swift in Sources */,
+				F186719C2C4694EC00F6310E /* R.swift in Sources */,
 				F1ACD30E2C380A3600CA3D74 /* UserRepository.swift in Sources */,
 				F18C57312C41885C0029953F /* UserType.swift in Sources */,
 				F1ACD2E82C37FA9300CA3D74 /* SceneDelegate.swift in Sources */,

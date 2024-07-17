@@ -5,7 +5,7 @@
 //  Created by KsArT on 12.07.2024.
 //
 
-import Foundation
+import UIKit
 
 enum UserType: Double, CaseIterable {
     case vipClient = 10000.0
@@ -44,6 +44,16 @@ enum UserType: Double, CaseIterable {
             case 90...100: (UserType.vipClient.rawValue,
                             Int.random(in: UserType.vipClient.rawValue.toInt()...UserType.vipClient.rawValue.toInt()*100).toDouble())
             default: (0, 0)
+        }
+    }
+
+    func getColor() -> UIColor {
+        switch self {
+            case .vipClient: .orange
+            case .newClient: .green
+            case .goodClient: .blue
+            case .client: .black
+            case .debtor: .red
         }
     }
 
