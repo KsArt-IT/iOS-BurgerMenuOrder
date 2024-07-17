@@ -45,12 +45,11 @@ class ContactsViewController: UIViewController {
                         self?.contacts[index].append(user)
                     }
                     self?.reloadTable()
-                    self?.showLoader(false)
                 case .failure(let error):
                     // Обработка ошибки
                     self?.showAlert("Error!", message: error.localizedDescription)
-                    self?.showLoader(false)
             }
+            self?.showLoader(false)
         }
     }
 
@@ -123,7 +122,7 @@ extension ContactsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.row < contacts[indexPath.section].count else { fatalError("\(ContactCell.identifier) row=\(indexPath.row) > count=\(contacts.count)") }
+        guard indexPath.row < contacts[indexPath.section].count else { fatalError("\(ContactCell.identifier) row=\(indexPath.row) > count=\(contacts[indexPath.section].count)") }
         guard let ceil = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell else { fatalError("\(ContactCell.identifier) not ceil")}
 
         ceil.configure(user: contacts[indexPath.section][indexPath.row])

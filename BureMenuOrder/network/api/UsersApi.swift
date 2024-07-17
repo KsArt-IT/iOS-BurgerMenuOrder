@@ -43,7 +43,7 @@ final class UsersApi {
     }
 
     private func execute(_ block: @escaping () -> Void) {
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 3) {
             block()
         }
     }
