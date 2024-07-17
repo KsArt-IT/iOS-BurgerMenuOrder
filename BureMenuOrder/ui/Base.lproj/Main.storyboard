@@ -64,7 +64,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="LfG-Rw-C34">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -80,9 +80,7 @@
         <scene sceneID="xs5-KZ-DQc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Ml-Z1-ztp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Контакты" image="person" catalog="system" selectedImage="person.fill" id="CJy-Ue-jIH">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Контакты" image="person" catalog="system" selectedImage="person.fill" id="CJy-Ue-jIH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q7G-4e-9fj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -101,9 +99,7 @@
         <scene sceneID="vey-zJ-QvW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FaL-Uy-bex" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Фото" image="person.2" catalog="system" selectedImage="person.2.fill" id="mmn-og-scP">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Фото" image="person.2" catalog="system" selectedImage="person.2.fill" id="mmn-og-scP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7x3-vY-1en">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

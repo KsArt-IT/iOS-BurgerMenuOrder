@@ -19,7 +19,7 @@ final class UsersApi {
         execute {
             do {
                 if Int.random(in: 0...100) < 25 {
-//                    throw URLError(.timedOut)
+                    throw URLError(.timedOut)
                 }
                 var data:[UserNetwork] = []
                 switch endpoint {
