@@ -39,7 +39,7 @@ class PhotosViewController: UIViewController {
         setupViews()
         setupConstraints()
 
-        showLoader()
+        showLoader(first: true)
         loadDate()
     }
 
@@ -65,8 +65,8 @@ class PhotosViewController: UIViewController {
         // последним и самым верхним
         view.addSubview(loading)
 
-        collectionView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
 
         // зарегистрируем делегата
         collectionView.dataSource = self
@@ -91,11 +91,11 @@ class PhotosViewController: UIViewController {
     }
 
     @objc private func handleRefreshControl() {
-        showLoader(first: false)
+        showLoader()
         loadDate()
     }
 
-    private func showLoader(show: Bool = true, first: Bool = true) {
+    private func showLoader(show: Bool = true, first: Bool = false) {
         if show {
             if first {
                 loading.startAnimating()

@@ -31,7 +31,7 @@ class ContactsViewController: UIViewController {
         setupViews()
         setupConstraints()
         
-        showLoader()
+        showLoader(first: true)
         loadDate()
     }
 
@@ -65,8 +65,8 @@ class ContactsViewController: UIViewController {
         // последним и самым верхним
         view.addSubview(loading)
 
-        tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        tableView.refreshControl = refreshControl
 
         // зарегистрируем ячейку и делегата
         tableView.register(ContactCell.self, forCellReuseIdentifier: ContactCell.identifier)
@@ -93,11 +93,11 @@ class ContactsViewController: UIViewController {
     }
 
     @objc private func handleRefreshControl() {
-        showLoader(first: false)
+        showLoader()
         loadDate()
     }
 
-    private func showLoader(show: Bool = true, first: Bool = true) {
+    private func showLoader(show: Bool = true, first: Bool = false) {
         if show {
             if first {
                 loading.startAnimating()
