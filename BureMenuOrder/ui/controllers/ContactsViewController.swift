@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ContactsViewController: UIViewController {
 
     private var userRepository: UserRepository?
     private var contacts: [[UserData]] = [[]]
@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         view.hidesWhenStopped = true
         return view
     }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -95,12 +94,14 @@ class ViewController: UIViewController {
     private func showDetailController(for contact: UserData) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "detailControllerSID") as? DetailViewController {
             vc.configure(contact)
+            // скрыть tabBarController при переходе на DetailViewController
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ContactsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         contacts.count
@@ -134,7 +135,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension ContactsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

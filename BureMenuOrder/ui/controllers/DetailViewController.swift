@@ -42,7 +42,6 @@ class DetailViewController: UIViewController {
     private let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-//        view.spacing = 8
         return view
     }()
     private let ordersLabel: UILabel = {
@@ -86,6 +85,7 @@ class DetailViewController: UIViewController {
     private func setupViews() {
         guard let contact else { return }
 
+//        tabBarController?.tabBar.isHidden = true
         nameLabel.text = contact.name
         photo.image = UIImage(named: contact.photo)
         ordersLabel.text = "Сделано заказов, всего: \(contact.orderAmount)"
