@@ -27,6 +27,11 @@ class PhotosViewController: UIViewController {
         view.hidesWhenStopped = true
         return view
     }()
+    private let refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.attributedTitle = NSAttributedString(string: "Идет обновление...")
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +39,11 @@ class PhotosViewController: UIViewController {
         setupViews()
         setupConstraints()
 
+        showLoader()
         loadDate()
     }
 
-    private func loadDate() {
-        showLoader()
+    private func loadDate(first: Bool = true) {
         userRepository = ServiceLocator.shared.resolve()
         userRepository?.getUsers { [weak self] result in
             switch result {
@@ -51,7 +56,7 @@ class PhotosViewController: UIViewController {
                     // Обработка ошибки
                     self?.showAlert("Error!", message: error.localizedDescription)
             }
-            self?.showLoader(false)
+            self?.showLoader(show: false)
         }
     }
 
@@ -59,6 +64,9 @@ class PhotosViewController: UIViewController {
         view.addSubview(collectionView)
         // последним и самым верхним
         view.addSubview(loading)
+
+        collectionView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
 
         // зарегистрируем делегата
         collectionView.dataSource = self
@@ -82,11 +90,21 @@ class PhotosViewController: UIViewController {
         ])
     }
 
-    private func showLoader(_ show: Bool = true) {
+    @objc private func handleRefreshControl() {
+        showLoader(first: false)
+        loadDate()
+    }
+
+    private func showLoader(show: Bool = true, first: Bool = true) {
         if show {
-            loading.startAnimating()
+            if first {
+                loading.startAnimating()
+            } else {
+                refreshControl.beginRefreshing()
+            }
         } else {
             loading.stopAnimating()
+            refreshControl.endRefreshing()
         }
     }
 

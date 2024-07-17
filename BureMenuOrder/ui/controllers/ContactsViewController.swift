@@ -18,17 +18,24 @@ class ContactsViewController: UIViewController {
         view.hidesWhenStopped = true
         return view
     }()
+    // pull to refresh
+    private let refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.attributedTitle = NSAttributedString(string: "Идет обновление...")
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
         setupConstraints()
         
+        showLoader()
         loadDate()
     }
 
     private func loadDate() {
-        showLoader()
         userRepository = ServiceLocator.shared.resolve()
         userRepository?.getUsers { [weak self] result in
             switch result {
@@ -49,7 +56,7 @@ class ContactsViewController: UIViewController {
                     // Обработка ошибки
                     self?.showAlert("Error!", message: error.localizedDescription)
             }
-            self?.showLoader(false)
+            self?.showLoader(show: false)
         }
     }
 
@@ -57,6 +64,9 @@ class ContactsViewController: UIViewController {
         view.addSubview(tableView)
         // последним и самым верхним
         view.addSubview(loading)
+
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
 
         // зарегистрируем ячейку и делегата
         tableView.register(ContactCell.self, forCellReuseIdentifier: ContactCell.identifier)
@@ -82,11 +92,21 @@ class ContactsViewController: UIViewController {
         ])
     }
 
-    private func showLoader(_ show: Bool = true) {
+    @objc private func handleRefreshControl() {
+        showLoader(first: false)
+        loadDate()
+    }
+
+    private func showLoader(show: Bool = true, first: Bool = true) {
         if show {
-            loading.startAnimating()
+            if first {
+                loading.startAnimating()
+            } else {
+                refreshControl.beginRefreshing()
+            }
         } else {
             loading.stopAnimating()
+            refreshControl.endRefreshing()
         }
     }
 
@@ -149,7 +169,7 @@ extension ContactsViewController: UITableViewDelegate {
         // кнопка действий с картинкой
         let actionDelete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, complited in
             // удалим из списка
-            self?.contacts.remove(at: indexPath.row)
+            self?.contacts[indexPath.section].remove(at: indexPath.row)
             // удалим из таблицы
             tableView.deleteRows(at: [indexPath], with: .automatic)
             // скрыть кнопку после
